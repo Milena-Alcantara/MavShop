@@ -64,10 +64,10 @@ fun menuPersonalizarCestas(){
 
     println(
         "Escolha uma opção:" +
-                "\n1 - Adicionar produto à cesta Plus" +
+                "\n1 - Adicionar produto na cesta Plus" +
                 "\n2 - Remover produto da cesta Plus" +
-                "\n3 - Ver produtos na cesta Plus" +
-                "\n4 - Ver produtos na cesta Básica" +
+                "\n3 - Ver produtos na Cesta Plus" +
+                "\n4 - Ver produtos na Cesta Básica" +
                 "\n5 - Calcular valor total da cesta básica" +
                 "\n6 - Calcular valor total da cesta plus" +
                 "\n0 - Sair"
