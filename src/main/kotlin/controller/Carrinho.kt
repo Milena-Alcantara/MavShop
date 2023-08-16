@@ -1,8 +1,8 @@
 package controller
 
 class Carrinho {
-   private var listaCarrinhoCesta = mutableListOf<Cesta>()
-//   private var listaCarrinhoProduto = mutableListOf<Cesta>()
+    private var listaCarrinhoCesta = mutableListOf<Cesta>()
+    private var listaCarrinhoProduto = mutableListOf<Cesta>()
 
 
     fun adicionarCestaAoCarrinho(cesta : Cesta){
