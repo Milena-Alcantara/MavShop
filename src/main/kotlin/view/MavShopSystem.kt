@@ -155,7 +155,9 @@ fun finalizarCompra(){
         println("Deseja finalizar sua compra? \n\t1- Sim, quero finalizar \n\t2- Não, quero continuar comprando")
         var choice = readln().toIntOrNull()
         when(choice){
-            1-> PagamentoView().escolherFormaPagamento()
+            1-> {
+                println("Valor total: $totalCarrinho")
+                PagamentoView().escolherFormaPagamento()}
             2-> comprarCestas()
             else-> println("Opção inválida")
         }

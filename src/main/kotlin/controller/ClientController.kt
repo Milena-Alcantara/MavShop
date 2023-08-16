@@ -11,11 +11,13 @@ class ClientController {
         return true
     }
     fun loginClient(email: String, password: String): Boolean{
-        while (email.isBlank() || password.isBlank()){
+        if (email.isBlank() || password.isBlank()){
           return false
+        }else{
+            clientRepository.loginClient(email,password)
+            return true
         }
-        clientRepository.loginClient(email,password)
-        return true
+
     }
     fun validateClientData(name: String, email: String, password:String, phone: String, cep: String): Boolean{
         if (name.isNullOrBlank() || email.isNullOrBlank() || password.isNullOrBlank() || phone.isNullOrBlank() || cep.isNullOrBlank()){
