@@ -4,6 +4,7 @@ import controller.CarrinhoController
 import controller.CestaController
 import model.CestaBasica
 import model.CestaPlus
+import model.NotaFiscal
 import model.Produto
 
 val clientService = ClientView()
@@ -34,9 +35,14 @@ fun menuClient(){
 }
 fun comprarCestas(){
     val carrinhoController = CarrinhoController()
+    val notaFiscal =  NotaFiscal()
     do {
         println("Informe a ação desejada: " +
+
+                "\n\t1- Comprar Cesta Básica\n\t2- Comprar Cesta Plus\n\t3- Personalizar")
+
                 "\n\t1- Comprar Cesta Básica\n\t2- Comprar Cesta Plus\n\t3- Personalizar\n\t0- Sair")
+
         var choice = readln().toIntOrNull()
         when(choice){
             1-> { val cestaBasica = CestaBasica()
@@ -44,6 +50,7 @@ fun comprarCestas(){
                 totalCarrinho += cestaBasica.calcularValorTotalBasica()
                 println("Valor total até o momento: R$${cestaBasica.calcularValorTotalBasica()}")
                 finalizarCompra()
+                notaFiscal.gerarNotaFiscalCestaBasica(cestaBasica)
             }
             2-> {
                 val cestaPlus = CestaPlus()
@@ -51,6 +58,7 @@ fun comprarCestas(){
                 totalCarrinho+=cestaPlus.calcularValorTotalPlus()
                 println("Valor total até o momento: R$${cestaPlus.calcularValorTotalPlus()}")
                 finalizarCompra()
+                notaFiscal.gerarNotaFiscalCestaplus(cestaPlus)
             }
             3-> menuPersonalizarCestas()
             0-> {println("Saindo do sistema")

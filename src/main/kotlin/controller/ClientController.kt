@@ -2,14 +2,21 @@ package controller
 
 import model.Client
 import model.ClientRepository
+import twilio.TwilioNotifier
 
-class ClientController {
+
+class ClientController(private val twilioAccountSid: String, private val twilioAuthToken: String) {
     companion object{
         private val clientRepository = ClientRepository()
     }
+    private val twilioNotifier = TwilioNotifier(twilioAccountSid, twilioAuthToken)
+
     fun addClient(name: String, email: String, password:String, phone: String, cep: String): Boolean {
         val newClient = Client(name, email, password, phone, cep)
         clientRepository.addClient(newClient)
+
+        val mensagem = "Bem-vindo, $name! Seu cadastro foi realizado com sucesso."
+        twilioNotifier.enviarNotificacao(phone, mensagem)
         return true
     }
     fun loginClient(email: String, password: String): Boolean{
