@@ -57,5 +57,9 @@ _Carrinho:_
 O Mav Shop oferece aos clientes uma experiência de compra conveniente e personalizada, permitindo que eles escolham entre cestas pré-definidas ou personalizem suas compras de acordo com suas necessidades. Com uma variedade de métodos de pagamento e status de compra atualizados, os clientes podem desfrutar de uma experiência de compra eficiente e informada. 
 
 <hr>
-
-![Logo marca da Mav Shop](https://imgur.com/a/lxAf5h6)
+<div>
+    
+  <a href="https://ibb.co/HPSgqbn"><img src="https://i.ibb.co/fNg0Hy4/MavShop.jpg" alt="MavShop" border="0"></a>
+    
+</div>
+    
