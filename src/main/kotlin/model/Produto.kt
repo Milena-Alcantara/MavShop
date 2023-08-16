@@ -11,6 +11,12 @@ data class Produto(val nome: String, val preco: Double, val estoqueMaximo: Int) 
         }
     }
 
+    object ProdutosDisponiveis {
+        val produtos: List<Produto> = listOf(
+            Produto("Arroz Tipo 1 - 5kg", 12.00, 1),
+            Produto("Feijão Carioquinha - 1kg", 6.99, 2),
+        )
+    }
     fun adicionarQuantidade(quantidade: Int) {
         if (quantidade < 0) {
             throw IllegalArgumentException("A quantidade adiconada deve ser numeros positivos")
