@@ -1,6 +1,7 @@
 package view
 
 import controller.CestaController
+import model.CestaBasica
 import model.Produto
 
 fun main() {
@@ -14,6 +15,8 @@ fun main() {
                 "\n2 - Remover produto da cesta Plus" +
                 "\n3 - Ver produtos na cesta Plus" +
                 "\n4 - Ver produtos na cesta Básica" +
+                "\n5 - Calcular valor total da cesta básica" +
+                "\n6 - Calcular valor total da cesta plus" +
                 "\n0 - Sair"
     )
 
@@ -69,6 +72,16 @@ fun main() {
                 cestaBasica.produtos.forEach { produto ->
                     println("${produto.nome} - Preço: ${produto.preco}")
                 }
+            }
+
+            5 -> {
+                val valorTotal = CestaBasica().calcularValorTotalBasica()
+                println("Valor total da cesta Básica: R$ $valorTotal")
+            }
+
+            6 -> {
+                val valorTotal = cestaPlus.calcularValorTotalPlus()
+                println("Valor total da cesta Plus: R$ $valorTotal")
             }
 
             0 -> {
