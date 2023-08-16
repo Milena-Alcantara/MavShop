@@ -32,7 +32,6 @@ class ClientView {
         var password = readln()
         if (clientController.loginClient(email, password)){
             println("Cliente logado com sucesso!")
-
         }else{
             println("E-mail ou senha não cadastrados em nosso sistema.")
             println("Efetue seu cadastro: ")
