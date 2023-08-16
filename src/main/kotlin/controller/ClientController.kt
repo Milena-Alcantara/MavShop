@@ -4,7 +4,9 @@ import model.Client
 import model.ClientRepository
 
 class ClientController {
-    private val clientRepository = ClientRepository()
+    companion object{
+        private val clientRepository = ClientRepository()
+    }
     fun addClient(name: String, email: String, password:String, phone: String, cep: String): Boolean {
         val newClient = Client(name, email, password, phone, cep)
         clientRepository.addClient(newClient)
@@ -14,8 +16,8 @@ class ClientController {
         if (email.isBlank() || password.isBlank()){
           return false
         }else{
-            clientRepository.loginClient(email,password)
-            return true
+            return clientRepository.loginClient(email,password)
+
         }
 
     }
