@@ -13,8 +13,12 @@ data class Produto(val nome: String, val preco: Double, val estoqueMaximo: Int) 
 
     object ProdutosDisponiveis {
         val produtos: List<Produto> = listOf(
-            Produto("Arroz Tipo 1 - 5kg", 12.00, 1),
-            Produto("Feijão Carioquinha - 1kg", 6.99, 2),
+            Produto("Azeite Extra Virge Premium - 500ml", 27.00, 2),
+            Produto("Bolo de Pistache e Framboesa - 2kg", 35.00, 2),
+            Produto("Bolachas de Queijo Parmesão e Ervas Finas - 150g", 8.00, 3),
+            Produto("Bolo de Chocolate Amargo com Caramelo Salgado - 1kg", 25.00, 2),
+            Produto("Suco de pêssego - 1L", 6.99, 3),
+            Produto("Iogurte Natural - 200ml", 8.00, 3)
         )
     }
     fun adicionarQuantidade(quantidade: Int) {
