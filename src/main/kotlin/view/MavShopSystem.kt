@@ -14,16 +14,17 @@ fun main(args: Array<String>) {
 }
 fun menuClient(){
     do {
-        println("----------Bem vindo ao MAV SHOP!----------")
         println()
+        println("----------Bem vindo ao MAV SHOP!----------")
         println("Informe a opção desejada: " +
                 "\n\t 1- Efetuar cadastro\n\t 2- Logar ")
         var choice = readln().toIntOrNull() ?: 0
 
         when(choice){
             1 -> {clientService.register()
+                println()
             clientService.login()}
-            2-> {clientService.login()
+            2-> { clientService.login()
             }
 
             else-> println("Opção inválida")
@@ -35,26 +36,28 @@ fun comprarCestas(){
     val carrinhoController = CarrinhoController()
     do {
         println("Informe a ação desejada: " +
-                "\n\t1- Comprar Cesta Básica\n\t2-Comprar Cesta Plus\n\t3- Personalizar")
+                "\n\t1- Comprar Cesta Básica\n\t2- Comprar Cesta Plus\n\t3- Personalizar\n\t0- Sair")
         var choice = readln().toIntOrNull()
         when(choice){
             1-> { val cestaBasica = CestaBasica()
                 carrinhoController.adicionarCestaAoCarrinho(cestaBasica)
                 totalCarrinho += cestaBasica.calcularValorTotalBasica()
-                println("Valor total até o momento: ${cestaBasica.calcularValorTotalBasica()}")
+                println("Valor total até o momento: R$${cestaBasica.calcularValorTotalBasica()}")
                 finalizarCompra()
             }
             2-> {
                 val cestaPlus = CestaPlus()
                 carrinhoController.adicionarCestaAoCarrinho(cestaPlus)
                 totalCarrinho+=cestaPlus.calcularValorTotalPlus()
-                println("Valor total até o momento: ${cestaPlus.calcularValorTotalPlus()}")
+                println("Valor total até o momento: R$${cestaPlus.calcularValorTotalPlus()}")
                 finalizarCompra()
             }
             3-> menuPersonalizarCestas()
+            0-> {println("Saindo do sistema")
+                return}
             else-> println("Opção inválida")
         }
-    }while (choice !in 1..3)
+    }while (choice !in 0..3)
 }
 
 fun menuPersonalizarCestas(){
@@ -70,7 +73,7 @@ fun menuPersonalizarCestas(){
                 "\n4 - Ver produtos na cesta Básica" +
                 "\n5 - Calcular valor total da cesta básica" +
                 "\n6 - Calcular valor total da cesta plus" +
-                "\n0 - Sair"
+                "\n0 - Voltar ao menu anterior"
     )
 
     while (true) {
@@ -116,14 +119,14 @@ fun menuPersonalizarCestas(){
             3 -> {
                 println("Produtos na cesta Plus:")
                 cestaPlus.produtos.forEach { produto ->
-                    println("${produto.nome} - Preço: ${produto.preco}")
+                    println("${produto.nome} - Preço: R$${produto.preco}")
                 }
             }
 
             4 -> {
                 println("Produtos na cesta Básica:")
                 cestaBasica.produtos.forEach { produto ->
-                    println("${produto.nome} - Preço: ${produto.preco}")
+                    println("${produto.nome} - Preço: R$${produto.preco}")
                 }
             }
 
@@ -138,8 +141,7 @@ fun menuPersonalizarCestas(){
             }
 
             0 -> {
-                println("Saindo do sistema.")
-                return
+                comprarCestas()
             }
 
             else -> {
@@ -156,7 +158,7 @@ fun finalizarCompra(){
         var choice = readln().toIntOrNull()
         when(choice){
             1-> {
-                println("Valor total: $totalCarrinho")
+                println("Valor total: R$$totalCarrinho")
                 PagamentoView().escolherFormaPagamento()}
             2-> comprarCestas()
             else-> println("Opção inválida")

@@ -15,10 +15,6 @@ class CestaController {
     fun getCestaPlus(): CestaPlus {
         return cestaPlus
     }
-
-    fun editarCesta(cesta: CestaPlus, opcao: Int, produto: Produto) {
-        cesta.editarCesta(opcao, produto)
-    }
 }
 
 
