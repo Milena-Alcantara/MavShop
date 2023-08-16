@@ -28,6 +28,15 @@ class CestaBasica : Cesta(){
         produtos.add(farinhaDeTrigo)
         produtos.add(milhoPipoca)
     }
+
+    fun calcularValorTotalBasica(): Double {
+        var valorTotal = 0.0
+        for (produto in produtos) {
+            valorTotal += produto.preco
+        }
+        return valorTotal
+    }
+
 }
 
 class CestaPlus : Cesta(){
@@ -43,5 +52,13 @@ class CestaPlus : Cesta(){
             2 -> removerProduto(produto)
             else -> throw IllegalArgumentException("Opção inválida")
         }
+    }
+
+    fun calcularValorTotalPlus(): Double {
+        var valorTotal = 0.0
+        for (produto in produtos) {
+            valorTotal += produto.preco
+        }
+        return valorTotal
     }
 }
