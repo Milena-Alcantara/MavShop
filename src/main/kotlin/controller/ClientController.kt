@@ -5,11 +5,11 @@ import model.ClientRepository
 import twilio.TwilioNotifier
 
 
-class ClientController(private val twilioAccountSid: String, private val twilioAuthToken: String) {
+class ClientController {
     companion object{
         private val clientRepository = ClientRepository()
     }
-    private val twilioNotifier = TwilioNotifier(twilioAccountSid, twilioAuthToken)
+    private val twilioNotifier = TwilioNotifier(accountSid = "", authToken = "")
 
     fun addClient(name: String, email: String, password:String, phone: String, cep: String): Boolean {
         val newClient = Client(name, email, password, phone, cep)
