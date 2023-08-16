@@ -3,7 +3,7 @@ package model
 import java.lang.IllegalArgumentException
 
 open class Cesta {
-    val produtos: MutableList<Produto> = mutableListOf()
+    var produtos: MutableList<Produto> = mutableListOf()
 }
 
 class CestaBasica : Cesta(){

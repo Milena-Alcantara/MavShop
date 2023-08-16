@@ -1,6 +1,9 @@
 package controller
 
-class Carrinho {
+import model.Cesta
+import model.Produto
+
+class CarrinhoController {
     private var listaCarrinhoCesta = mutableListOf<Cesta>()
     private var listaCarrinhoProduto = mutableListOf<Cesta>()
 
