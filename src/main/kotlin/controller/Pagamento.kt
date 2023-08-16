@@ -1,13 +1,10 @@
 package controller
-class Pagamento {
-    companion object{
-
-
-    private var  total = 0.0
-    private lateinit var numeroCartao: String
-    private lateinit var cvv: String
-    private var saldo: Double = 0.0
-
+open class Pagamento {
+    companion object {
+        var total = 0.0
+        private lateinit var numeroCartao: String
+        private lateinit var cvv: String
+        private var saldo = 0.0
 
         fun processoPagamentoDinheiro(dinheiro: Double) {
             if (dinheiro > total) {
@@ -25,19 +22,18 @@ class Pagamento {
             this.cvv = cvv
         }
 
-        fun processoPagamentoCartaoDebito(numeroCartao: String, cvv: String, saldo : Double) : Boolean{
+        fun processoPagamentoCartaoDebito(numeroCartao: String, cvv: String, saldo: Double): Boolean {
             require(ValidarPagamento.validaNumeroCartao(numeroCartao)) { "Numero de cartão invalido" }
             require(ValidarPagamento.validarCVV(cvv)) { "Numero Cvv inválido" }
             this.numeroCartao = numeroCartao
             this.cvv = cvv
             this.saldo = saldo
 
-            if (saldo >= total){
+            if (saldo >= total) {
                 saldo - total
                 return true
             }
             return false
         }
     }
-
 }

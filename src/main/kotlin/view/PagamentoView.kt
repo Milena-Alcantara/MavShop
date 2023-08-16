@@ -2,7 +2,7 @@ package view
 
 import controller.Pagamento
 
-class PagamentoView {
+class PagamentoView : Pagamento(){
     fun cadastrarCartãoDebito(){
         println("Digite o numero do cartão")
         var numeroCartão = readln()
