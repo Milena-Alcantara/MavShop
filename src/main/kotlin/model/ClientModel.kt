@@ -13,7 +13,11 @@ class ClientRepository{
     }
 
     fun loginClient(email: String, password: String): Boolean {
-        clients.forEach { if (it.email == email && it.password == password) return true }
+       for (client in clients){
+           if (client.email == email && client.password == password){
+               return true
+           }
+       }
         return false
     }
 }
