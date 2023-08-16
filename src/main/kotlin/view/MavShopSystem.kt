@@ -7,6 +7,7 @@ import model.CestaPlus
 import model.Produto
 
 val clientService = ClientView()
+var totalCarrinho = 0.0
 fun main(args: Array<String>) {
     menuClient()
     comprarCestas()
@@ -39,12 +40,14 @@ fun comprarCestas(){
         when(choice){
             1-> { val cestaBasica = CestaBasica()
                 carrinhoController.adicionarCestaAoCarrinho(cestaBasica)
+                totalCarrinho += cestaBasica.calcularValorTotalBasica()
                 println("Valor total até o momento: ${cestaBasica.calcularValorTotalBasica()}")
                 finalizarCompra()
             }
             2-> {
                 val cestaPlus = CestaPlus()
                 carrinhoController.adicionarCestaAoCarrinho(cestaPlus)
+                totalCarrinho+=cestaPlus.calcularValorTotalPlus()
                 println("Valor total até o momento: ${cestaPlus.calcularValorTotalPlus()}")
                 finalizarCompra()
             }

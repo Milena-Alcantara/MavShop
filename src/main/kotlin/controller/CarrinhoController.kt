@@ -8,11 +8,7 @@ class CarrinhoController {
     private var listaCarrinhoProduto = mutableListOf<Cesta>()
 
 
-    fun adicionarCestaAoCarrinho(cesta : Cesta){
+    fun adicionarCestaAoCarrinho(cesta: Cesta) {
         listaCarrinhoCesta.add(cesta)
     }
-    fun editarCestaAoCarrinho(produto : Produto){
-
-    }
-
 }
