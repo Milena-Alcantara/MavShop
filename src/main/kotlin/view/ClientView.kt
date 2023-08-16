@@ -2,10 +2,10 @@ package view
 
 import controller.ClientController
 
-class ClientService {
+class ClientView {
     private val clientController = ClientController()
 
-    fun register(){
+    fun register():Boolean{
             println("Informe seu nome: ")
             var name = readln()
             println("Informe seu e-mail: ")
@@ -18,9 +18,11 @@ class ClientService {
             var cep = readln()
          if (!clientController.validateClientData(name, email, password, phone, cep)){
              println("Dados inválidos, digite novamente.")
+             register()
          }else
         clientController.addClient(name, email, password, phone, cep)
         println("Cadastro realizado com sucesso!")
+        return true
     }
 
     fun login(){
@@ -30,8 +32,11 @@ class ClientService {
         var password = readln()
         if (clientController.loginClient(email, password)){
             println("Cliente logado com sucesso!")
+
         }else{
             println("E-mail ou senha não cadastrados em nosso sistema.")
+            println("Efetue seu cadastro: ")
+            register()
         }
     }
 }
