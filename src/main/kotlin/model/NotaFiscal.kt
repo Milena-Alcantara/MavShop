@@ -1,5 +1,6 @@
 package model
 
+
 class NotaFiscal {
     fun gerarNotaFiscalCestaBasica(cestaBasica: CestaBasica): String {
         val valorTotal = cestaBasica.calcularValorTotalBasica()
