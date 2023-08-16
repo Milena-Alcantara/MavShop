@@ -58,4 +58,4 @@ O Mav Shop oferece aos clientes uma experiência de compra conveniente e persona
 
 <hr>
 
-![Logo marca da Mav Shop](C:\Users\milena.alcantara\Downloads\MavShop.jpg)
+![Logo marca da Mav Shop](https://imgur.com/a/lxAf5h6)
