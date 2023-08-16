@@ -38,9 +38,6 @@ fun comprarCestas(){
     val notaFiscal =  NotaFiscal()
     do {
         println("Informe a ação desejada: " +
-
-                "\n\t1- Comprar Cesta Básica\n\t2- Comprar Cesta Plus\n\t3- Personalizar")
-
                 "\n\t1- Comprar Cesta Básica\n\t2- Comprar Cesta Plus\n\t3- Personalizar\n\t0- Sair")
 
         var choice = readln().toIntOrNull()
