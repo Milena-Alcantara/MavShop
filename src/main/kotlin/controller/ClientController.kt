@@ -4,9 +4,16 @@ import model.Client
 import model.ClientRepository
 import twilio.TwilioNotifier
 
+
 class ClientController (private val twilioAccountSid: String, private val twilioAuthToken: String){
     private val clientRepository = ClientRepository()
     private val twilioNotifier = TwilioNotifier(twilioAccountSid, twilioAuthToken)
+
+class ClientController {
+    companion object{
+        private val clientRepository = ClientRepository()
+    }
+
     fun addClient(name: String, email: String, password:String, phone: String, cep: String): Boolean {
         val newClient = Client(name, email, password, phone, cep)
         clientRepository.addClient(newClient)
@@ -19,8 +26,8 @@ class ClientController (private val twilioAccountSid: String, private val twilio
         if (email.isBlank() || password.isBlank()){
           return false
         }else{
-            clientRepository.loginClient(email,password)
-            return true
+            return clientRepository.loginClient(email,password)
+
         }
 
     }

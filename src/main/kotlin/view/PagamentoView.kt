@@ -1,6 +1,6 @@
 package view
 
-import controller.Pagamento
+import controller.PagamentoController
 
 class PagamentoView {
     fun cadastrarCartãoDebito(){
@@ -12,7 +12,7 @@ class PagamentoView {
         var valor = readln().toDoubleOrNull()
 
         if (valor != null) {
-            Pagamento.processoPagamentoCartaoDebito(numeroCartão,cvv,valor, totalCarrinho)
+            PagamentoController.processoPagamentoCartaoDebito(numeroCartão,cvv,valor, totalCarrinho)
         }
     }
     fun cadastrarCartaoCredito(){
@@ -20,13 +20,13 @@ class PagamentoView {
         var numeroCartão = readln()
         println("Digite o cvv cartão")
         var cvv = readln()
-        Pagamento.processoPagamentoCartaoCredito(numeroCartão,cvv, totalCarrinho)
+        PagamentoController.processoPagamentoCartaoCredito(numeroCartão,cvv, totalCarrinho)
     }
     fun inserirDinheiro(){
         println("Digite o valor do pagamento")
         var valor = readln().toDoubleOrNull()
         if (valor != null) {
-            Pagamento.processoPagamentoDinheiro(valor, totalCarrinho)
+            PagamentoController.processoPagamentoDinheiro(valor, totalCarrinho)
         }else {
             println("Pagamento inválido")
         }

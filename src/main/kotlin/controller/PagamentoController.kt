@@ -1,5 +1,5 @@
 package controller
-class Pagamento {
+class PagamentoController {
     companion object{
     private lateinit var numeroCartao: String
     private lateinit var cvv: String
@@ -8,8 +8,8 @@ class Pagamento {
         fun processoPagamentoDinheiro(dinheiro: Double, total: Double) {
             if (dinheiro >= total) {
                 var resultado = dinheiro - total
-                println("Total da Compra: $total")
-                println("Troco: $resultado")
+                println("Total da Compra: R$ $total".format())
+                println("Troco: R$ $resultado".format())
             } else {
                 println("Dinheiro insuficiente")
             }
