@@ -6,6 +6,7 @@ import model.CestaBasica
 import model.CestaPlus
 import model.NotaFiscal
 import model.Produto
+import viaCep.mostrarEndereco
 
 val clientService = ClientView()
 var totalCarrinho = 0.0
@@ -48,6 +49,7 @@ fun comprarCestas(){
                 println("Valor total até o momento: R$${cestaBasica.calcularValorTotalBasica()}")
                 finalizarCompra()
                 notaFiscal.gerarNotaFiscalCestaBasica(cestaBasica)
+
             }
             2-> {
                 val cestaPlus = CestaPlus()
