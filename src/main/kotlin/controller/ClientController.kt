@@ -17,6 +17,7 @@ class ClientController {
 
         val mensagem = "Bem-vindo, $name! Seu cadastro foi realizado com sucesso."
         twilioNotifier.enviarNotificacao(phone, mensagem)
+
         return true
     }
     fun loginClient(email: String, password: String): Boolean{
