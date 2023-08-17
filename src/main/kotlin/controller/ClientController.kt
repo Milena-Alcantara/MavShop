@@ -3,6 +3,8 @@ package controller
 import model.Client
 import model.ClientRepository
 import twilio.TwilioNotifier
+import viaCep.Endereco
+import viaCep.mostrarEndereco
 
 class ClientController {
     companion object{
@@ -17,6 +19,8 @@ class ClientController {
 
         val mensagem = "Bem-vindo, $name! Seu cadastro foi realizado com sucesso."
         twilioNotifier.enviarNotificacao(phone, mensagem)
+
+        mostrarEndereco(cep)
         return true
     }
     fun loginClient(email: String, password: String): Boolean{
