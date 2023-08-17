@@ -2,22 +2,27 @@ package controller
 
 import twilio.TwilioNotifier
 
-var phoneClient: String = ""
-val mensagemDeEntrega: String = "Compra realizada com sucesso na MAV SHOP, tempo estimado de entrega: 1 (um) dia útil"
-private val twilioNotifier = TwilioNotifier(accountSid = "AC6011f071943cc90a826e3ec73e4c906c", authToken = "28b0bc9b92585fcd1008d80408f7adad")
+private val mensagem = "Compra realizado com sucesso na MAV SHOP, prazo de entrega no seu endereço: 1 dia útil"
+ var phoneClient = ""
 
 class PagamentoController {
-    companion object{
-    private lateinit var numeroCartao: String
-    private lateinit var cvv: String
-    private var saldo: Double = 0.0
+    companion object {
+        private lateinit var numeroCartao: String
+        private lateinit var cvv: String
+        private var saldo: Double = 0.0
+        private val twilioNotifier = TwilioNotifier(
+            accountSid = "ACabb577250b257d0653aaafff9fdd1348",
+            authToken = "3287f03a99f8a22d60c35acf25a16d2b"
+        )
 
         fun processoPagamentoDinheiro(dinheiro: Double, total: Double) {
             if (dinheiro >= total) {
                 var resultado = dinheiro - total
                 println("Total da Compra: R$ $total".format())
                 println("Troco: R$ $resultado".format())
-                twilioNotifier.enviarNotificacao(phoneClient, mensagemDeEntrega)
+
+                twilioNotifier.enviarNotificacao(phoneClient, mensagem)
+
             } else {
                 println("Dinheiro insuficiente")
             }
@@ -30,7 +35,8 @@ class PagamentoController {
             this.cvv = cvv
             println("Total da Compra: $total")
             println("Pagamento realizado com sucesso!")
-            twilioNotifier.enviarNotificacao(phoneClient, mensagemDeEntrega)
+
+            twilioNotifier.enviarNotificacao(phoneClient, mensagem)
 
         }
         fun processoPagamentoCartaoDebito(numeroCartao: String, cvv: String, saldo : Double,total: Double){
@@ -44,7 +50,9 @@ class PagamentoController {
                 saldo - total
                 println("Total da Compra: $total")
                 println("Pagamento realizado com sucesso!")
-                twilioNotifier.enviarNotificacao(phoneClient, mensagemDeEntrega)
+
+                twilioNotifier.enviarNotificacao(phoneClient, mensagem)
+
             }else{
                 println("Não foi possível realizar o pagamento.")
             }

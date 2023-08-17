@@ -10,7 +10,8 @@ class ClientController {
     companion object{
         private val clientRepository = ClientRepository()
     }
-    private val twilioNotifier = TwilioNotifier(accountSid = "AC6011f071943cc90a826e3ec73e4c906c", authToken = "28b0bc9b92585fcd1008d80408f7adad")
+
+    private val twilioNotifier = TwilioNotifier(accountSid = "ACabb577250b257d0653aaafff9fdd1348", authToken = "3287f03a99f8a22d60c35acf25a16d2b")
 
     fun addClient(name: String, email: String, password:String, phone: String, cep: String): Boolean {
         val newClient = Client(name, email, password, phone, cep)
