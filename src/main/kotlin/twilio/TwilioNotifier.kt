@@ -13,7 +13,7 @@ class TwilioNotifier(private val accountSid: String, private val authToken: Stri
     fun enviarNotificacao(destino: String, mensagem: String) {
         val numeroDestino = PhoneNumber(destino)
 
-        val remetente = PhoneNumber("SEU_NUMERO_DO_TWILIO")
+        val remetente = PhoneNumber("+16185563568")
 
         val message = Message.creator(numeroDestino, remetente, mensagem).create()
 
