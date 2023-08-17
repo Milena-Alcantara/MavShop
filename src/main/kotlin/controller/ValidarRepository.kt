@@ -19,7 +19,7 @@ class ValidarRepository {
         }
 
         fun validarTelefone(telefone: String): Boolean {
-            val regex = Regex("[0-9]+")
+            val regex = Regex("[0-9+]*")
             return regex.matches(telefone) && telefone.length >= 8
         }
 

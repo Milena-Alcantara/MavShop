@@ -1,4 +1,11 @@
 package controller
+
+import twilio.TwilioNotifier
+
+var phoneClient: String = ""
+val mensagemDeEntrega: String = "Compra realizada com sucesso na MAV SHOP, tempo estimado de entrega: 1 (um) dia útil"
+private val twilioNotifier = TwilioNotifier(accountSid = "AC6011f071943cc90a826e3ec73e4c906c", authToken = "28b0bc9b92585fcd1008d80408f7adad")
+
 class PagamentoController {
     companion object{
     private lateinit var numeroCartao: String
@@ -10,9 +17,11 @@ class PagamentoController {
                 var resultado = dinheiro - total
                 println("Total da Compra: R$ $total".format())
                 println("Troco: R$ $resultado".format())
+                twilioNotifier.enviarNotificacao(phoneClient, mensagemDeEntrega)
             } else {
                 println("Dinheiro insuficiente")
             }
+
         }
         fun processoPagamentoCartaoCredito(numeroCartao: String, cvv: String, total: Double) {
             require(ValidarPagamento.validaNumeroCartao(numeroCartao)) { "Numero de cartão invalido" }
@@ -21,6 +30,8 @@ class PagamentoController {
             this.cvv = cvv
             println("Total da Compra: $total")
             println("Pagamento realizado com sucesso!")
+            twilioNotifier.enviarNotificacao(phoneClient, mensagemDeEntrega)
+
         }
         fun processoPagamentoCartaoDebito(numeroCartao: String, cvv: String, saldo : Double,total: Double){
             require(ValidarPagamento.validaNumeroCartao(numeroCartao)) { "Numero de cartão invalido" }
@@ -33,6 +44,7 @@ class PagamentoController {
                 saldo - total
                 println("Total da Compra: $total")
                 println("Pagamento realizado com sucesso!")
+                twilioNotifier.enviarNotificacao(phoneClient, mensagemDeEntrega)
             }else{
                 println("Não foi possível realizar o pagamento.")
             }
