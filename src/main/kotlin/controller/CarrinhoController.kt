@@ -3,7 +3,7 @@ package controller
 import model.CestaBasica
 import model.CestaPlus
 
-class Carrinho : Pagamento(){
+class CarrinhoController : Pagamento(){
         private var listaCarrinhoCestaBasica = mutableListOf<CestaBasica>()
         private var listaCarrinhoCestaPlus = mutableListOf<CestaPlus>()
 

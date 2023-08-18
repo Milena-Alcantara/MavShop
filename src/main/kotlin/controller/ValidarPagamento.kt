@@ -6,9 +6,7 @@ class ValidarPagamento {
             if (cvv.length != 3) {
                 return false
             }
-            return if (!cvv.matches("\\d+".toRegex())) {
-                false
-            } else true
+            return (!cvv.matches("\\d+".toRegex()))
         }
 
         fun validaNumeroCartao(numeroCartao: String): Boolean {

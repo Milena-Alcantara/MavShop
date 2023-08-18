@@ -1,5 +1,6 @@
 package view
 
+import controller.Pagamento
 import controller.PagamentoController
 
 class PagamentoView : Pagamento(){

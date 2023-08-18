@@ -19,7 +19,7 @@ class ClientController {
         clientRepository.addClient(newClient)
 
         val mensagem = "Bem-vindo, $name! Seu cadastro foi realizado com sucesso."
-        twilioNotifier.enviarNotificacao(phone, mensagem)
+        /*twilioNotifier.enviarNotificacao(phone, mensagem)*/
 
         mostrarEndereco(cep)
         return true
