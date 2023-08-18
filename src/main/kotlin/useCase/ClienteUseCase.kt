@@ -1,9 +1,9 @@
-package view
+package useCase
 
 import controller.ClientController
 import controller.ValidarRepository
 
-class ClientView {
+class ClienteUseCase {
     private val clientController = ClientController()
     lateinit var name : String
     lateinit var email : String
